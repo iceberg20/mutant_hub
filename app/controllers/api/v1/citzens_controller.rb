@@ -20,6 +20,12 @@ module Api
 				end
 			end
 
+			def destroy
+				citzen = Citzen.find(params[:id])
+				citzen.destroy
+				render json: {status: 'SUCCESS', message:'Deleted citzen', data:citzen},status: :ok
+			end
+
 			private
 			def citzen_params
 				params.permit(:name, :age, :gender)
