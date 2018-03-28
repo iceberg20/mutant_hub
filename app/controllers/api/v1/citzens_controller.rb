@@ -26,6 +26,15 @@ module Api
 				render json: {status: 'SUCCESS', message:'Deleted citzen', data:citzen},status: :ok
 			end
 
+			def update
+				citzen = Citzen.find(params[:id])
+				if citzen.update_attributes(citzen_params)
+					render json: {status: 'SUCCESS', message:'Updated citzen', data:citzen},status: :ok
+				else
+					render json: {status: 'ERROR', message:'citzens not update', data:citzen.erros},status: :unprocessable_entity
+				end
+			end
+
 			private
 			def citzen_params
 				params.permit(:name, :age, :gender)
