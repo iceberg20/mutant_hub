@@ -37,7 +37,7 @@ module Api
 
 			private
 			def citzen_params
-				params.permit(:name, :age, :gender)
+				params.permit(:name, :age, :gender, :latitude, :longitude)
 			end   
 		end
 	end
