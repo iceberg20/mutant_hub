@@ -1,0 +1,2 @@
+class Citzen < ApplicationRecord
+end
