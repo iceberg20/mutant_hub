@@ -35,6 +35,28 @@ module Api
 				end
 			end
 
+			def inform_mutation
+				citzen = Citzen.find(params[:id])
+				mutation = params[:mutation]
+				if mutation == "dente_de_neon"
+					if citzen.neon_flag.nil?						
+						citzen.neon_flag=1;
+					else
+						citzen.neon_flag=citzen.neon_flag+1;
+					end
+					citzen.save;
+					render json: {status: 'SUCCESS', message:'Indetion informed', data:citzen.neon_flag},status: :ok
+				elsif mutation == "olho_na_nuca"
+					if citzen.eye_flag.nil?						
+						citzen.eye_flag=1;
+					else
+						citzen.eye_flag=citzen.eye_flag+1;
+					end
+					citzen.save;
+					render json: {status: 'SUCCESS', message:'Indetion informed', data:citzen.eye_flag},status: :ok
+				end													
+			end
+
 			private
 			def citzen_params
 				params.permit(:name, :age, :gender, :latitude, :longitude)
