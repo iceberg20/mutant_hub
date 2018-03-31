@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
 		get '/inform_mutation/:id/:mutation', to: 'citzens#inform_mutation'
 		get '/percentage_of_infected(/:mutation)', to: 'report#percentage_of_infected'
+		get '/percentage_of_not_infected', to: 'report#percentage_of_not_infected'
 
   	end
   end

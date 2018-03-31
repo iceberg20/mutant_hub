@@ -21,8 +21,18 @@ module Api
 
 				percentage = ((qtd/total)*100).round.to_s + "%"
 
-				render json: {status: 'SUCCESS',   message: message, qtd: qtd, total: total, 
+				render json: {status: 'SUCCESS',   message: message, 
 										   percentage: percentage },status: :ok
+			end
+
+			def percentage_of_not_infected
+				total = Citzen.count
+				qtd = qtd_not_infected
+				percentage = ((qtd/total)*100).round.to_s + "%"
+
+				render json: {status: 'SUCCESS',   message: "Not infected counted",
+										   percentage: percentage },status: :ok
+				
 			end
 
 			def qtd_infected
@@ -49,6 +59,16 @@ module Api
 				qtd = 0.0
 				Citzen.find_each do |c|
 				  if c.eye_infected?
+				  	qtd+=1
+				  end
+				 end
+				return qtd
+			end
+
+			def qtd_not_infected
+			  qtd = 0.0
+				Citzen.find_each do |c|
+				  if (!c.eye_infected?) and (!c.neon_infected?)
 				  	qtd+=1
 				  end
 				 end
