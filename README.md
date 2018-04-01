@@ -63,9 +63,19 @@ Exemple: curl -X GET https://mutant-hub.herokuapp.com/api/v1/inform_mutation/4/d
 ### Reports
 
 **GET** `/percentage_of_not_infected` the percentage of citzen that are not infected by the mutation.
+```ruby
+Exemple: curl -X GET https://mutant-hub.herokuapp.com/api/v1/inform_mutation/4/dente_de_neon
+```
 
-**GET** `/percentage_of_infected` the percentage of citzens infected by any mutation( Olho na Nuca or Dente de Neon ) .
-
-**GET** `/percentage_of_infected/olho_na_nuca` the percentage of citzens infected by the mututation "Olho na Nuca"
-
-**GET** `/percentage_of_infected/dente_de_neon` the percentage of citzens infected by the mututation "Dente de Neon"
+**GET** `/percentage_of_infected` the percentage of citzens infected by any mutation( Olho na Nuca or Dente de Neon ).
+```ruby
+Exemple: curl -X GET https://mutant-hub.herokuapp.com/api/v1/percentage_of_infected
+```
+**GET** `/percentage_of_infected/olho_na_nuca` the percentage of citzens infected by the mututation "Olho na Nuca".
+```ruby
+Exemple: curl -X GET https://mutant-hub.herokuapp.com/api/v1/inform_mutation/4/olho_na_nuca
+```
+**GET** `/percentage_of_infected/dente_de_neon` the percentage of citzens infected by the mututation "Dente de Neon".
+```ruby
+Exemple: curl -X GET https://mutant-hub.herokuapp.com/api/v1/inform_mutation/4/dente_de_neon
+```
